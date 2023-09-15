@@ -767,7 +767,7 @@ the response is inserted into the current buffer after point."
          (encode-coding-string
           (json-encode (gptel--request-data (plist-get info :prompt)))
           'utf-8)))
-    (url-retrieve (format "https://%s/v1/chat/completions" gptel-host)
+    (url-retrieve (format "http://%s/v1/chat/completions" gptel-host)
                   (lambda (_)
                     (pcase-let ((`(,response ,http-msg ,error)
                                  (gptel--url-parse-response (current-buffer))))
